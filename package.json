@@ -1,0 +1,22 @@
+{
+  "name": "pokemon",
+  "version": "1.0.0",
+  "description": "Pokemon App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renjit2255/pokemon.git"
+  },
+  "keywords": [
+    "Pokemon"
+  ],
+  "author": "Renjith K.R",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renjit2255/pokemon/issues"
+  },
+  "homepage": "https://github.com/renjit2255/pokemon#readme"
+}
