@@ -5,7 +5,10 @@
   "main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server .",
-    "build": "webpack ."
+    "build": "webpack .",
+    "test": "jest --verbose",
+    "test:watch": "jest --watch --verbose",
+    "test:coverage": "jest  --verbose --coverage"
   },
   "repository": {
     "type": "git",
@@ -20,16 +23,34 @@
     "url": "https://github.com/renjit2255/pokemon/issues"
   },
   "homepage": "https://github.com/renjit2255/pokemon#readme",
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
     "@babel/core": "^7.19.0",
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/eslint-plugin": "^7.19.1",
     "@babel/plugin-transform-object-assign": "^7.18.6",
     "@babel/plugin-transform-runtime": "^7.18.10",
     "@babel/preset-env": "^7.19.0",
     "@babel/preset-react": "^7.18.6",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/react-hooks": "^8.0.1",
     "@babel/runtime": "^7.19.0",
     "babel-loader": "^8.2.5",
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-import-resolver-webpack": "^0.13.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.0.4",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.0.3",
+    "jest-environment-jsdom": "^29.0.3",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.0"
