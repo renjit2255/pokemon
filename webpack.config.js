@@ -1,5 +1,6 @@
 const path = require("path"),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
+  MiniCssExtractPlugin = require("mini-css-extract-plugin"),
   { resolve } = path,
   root = resolve(__dirname, './')
 
@@ -8,9 +9,7 @@ module.exports = {
   entry: resolve(root, 'src', 'index.js'),
   output: {
     path: resolve(root, "build"),
-    filename: "bundle.js",
-    publicPath: '/',
-    clean: true
+    filename: "[name]-[fullhash].js"
   },
   target: "web",
   devServer: {
@@ -30,14 +29,21 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: 'babel-loader'
-      }
-    ]
+      },
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve(root, 'src', 'index.html'),
       title: 'Pokemon App',
-      filename: resolve(root, 'build', 'index.html')
+      filename: resolve(root, 'build', 'index.html'),
+      template: resolve(root, 'src', 'index.html'),
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name]-[fullhash].css'
     })
   ]
 }

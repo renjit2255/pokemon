@@ -1,7 +1,13 @@
 import React from 'react'
+import PokemonList from './pages/PokemonList'
 
-const App = () => <h1>
-  Welcome to pokemon application!
-</h1>
+const App = () => <main className="container">
+  <h1>
+    Welcome to pokemon application!
+  </h1>
+  <section>
+    <PokemonList />
+  </section>
+</main>
 
 export default App

@@ -19,6 +19,8 @@ module.exports = {
     'jsx-a11y',
     'import',
     'jest',
+    'jest-dom',
+    'testing-library'
   ],
   globals: {
     document: true,
@@ -67,7 +69,16 @@ module.exports = {
       ignoreUrls: true
     }],
     indent: ['error', 2, { VariableDeclarator: 1 }],
-    'arrow-parens': ['error', 'as-needed']
+    'arrow-parens': ['error', 'as-needed'],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "jest-dom/prefer-checked": "error",
+    "jest-dom/prefer-enabled-disabled": "error",
+    "jest-dom/prefer-required": "error",
+    "jest-dom/prefer-to-have-attribute": "error",
+    "testing-library/await-async-query": "error",
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debugging-utils": "warn",
+    "testing-library/no-dom-import": "off"
   },
   env: { 'jest/globals': true },
 }
