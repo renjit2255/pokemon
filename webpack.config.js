@@ -9,7 +9,8 @@ module.exports = {
   entry: resolve(root, 'src', 'index.js'),
   output: {
     path: resolve(root, "build"),
-    filename: "[name]-[fullhash].js"
+    filename: "[name]-[fullhash].js",
+    publicPath: '/',
   },
   target: "web",
   devServer: {

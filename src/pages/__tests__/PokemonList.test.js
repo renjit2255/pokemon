@@ -19,7 +19,7 @@ describe('PokemonList', () => {
     })
     expect.assertions(3)
     render(<PokemonList />)
-    expect(screen.getByRole(/list/i)).toBeInTheDocument()
+    expect(await screen.findByRole(/list/i)).toBeInTheDocument()
     expect(await screen.findAllByRole(/listitem/i)).toHaveLength(2)
     expect(mockGetPokeList).toHaveBeenCalledTimes(1)
   })

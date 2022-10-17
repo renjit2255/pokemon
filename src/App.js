@@ -1,12 +1,15 @@
 import React from 'react'
-import PokemonList from './pages/PokemonList'
+import { BrowserRouter as Router } from 'react-router-dom'
+import PokemonRoutes from './routes/Routes'
 
 const App = () => <main className="container">
   <h1>
     Welcome to pokemon application!
   </h1>
   <section>
-    <PokemonList />
+    <Router>
+      <PokemonRoutes />
+    </Router>
   </section>
 </main>
 
