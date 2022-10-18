@@ -24,7 +24,7 @@ const PokemonCard = ({ pokemon = {} }) => {
           <h3>
             {
               data.name
-            && <Link to={`${PAGES.VIEW}/${data.name}`}>{data.name}</Link>
+            && <Link to={`/${PAGES.VIEW}/${data.name}`}>{data.name}</Link>
             }
           </h3>
           <p>Height: {data.weight}</p>

@@ -4,6 +4,17 @@ import PokemonList from '../PokemonList'
 import { getPokeList as mockGetPokeList } from '../../api/pokemonService'
 
 jest.mock('../../api/pokemonService')
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useParams: () => ({
+    pageNumber: 0,
+    limit: 20
+  })
+}))
+jest.mock('../../components', () => ({
+  ...jest.requireActual('../../components'),
+  Pagination: () => <div>Pagination</div>
+}))
 
 describe('PokemonList', () => {
   it('renders all the retrieved pokemons', async () => {

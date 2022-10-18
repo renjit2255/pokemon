@@ -6,6 +6,7 @@ import PokemonDetail from '../pages/PokemonDetail'
 
 const Routes = () => <Switch>
   <Route path={`/${PAGES.VIEW}/:name`} exact component={PokemonDetail} />
+  <Route path={`/${PAGES.LIST}/:limit/:pageNumber`} exact component={PokemonList} />
   <Route path={`/${PAGES.HOME}`} exact component={PokemonList} />
 </Switch>
 
