@@ -1,0 +1,40 @@
+.pokemon-body {
+  display: flex;
+  gap: 1em;
+  flex-direction: row;
+  background-color: #ffffff;
+  padding: 1em;
+}
+
+.pokemon-body .img {
+  border-radius: 0.25em;
+  border: 2px #ccc solid;
+  border-radius: .6em;
+}
+
+.pokemon-body .img img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.go-back {
+  position: sticky;
+  top: 1em;
+  z-index: 3;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 2em;
+  align-self: flex-start;
+  width: 50%;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}

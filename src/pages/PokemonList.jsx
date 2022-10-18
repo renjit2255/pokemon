@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getPokeList } from '../api/pokemonService'
-import PokemonCard from '../components/PokemonCard'
+import { PokemonCard } from '../components'
 
 const PokemonList = () => {
   const [pokemons, setPokemons] = useState([]),
@@ -19,21 +19,21 @@ const PokemonList = () => {
     setLoading(false)
   }, [])
 
-  return <main>
-    <h1>Pokemon List</h1>
+  return <section>
+    <h2>Pokemon List</h2>
     {
       loading
         ? <div role="progressbar">Loading...</div>
         : <div
           role={'list'}
-          className="card-container"
+          className="cards"
         >
           {pokemons.map(
             pokemon => <PokemonCard key={pokemon.name} pokemon={pokemon} />
           )}
         </div>
     }
-  </main>
+  </section>
 }
 
 export default PokemonList
