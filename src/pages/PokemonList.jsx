@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getPokeList } from '../api/pokemonService'
-import { PokemonCard, Pagination } from '../components'
+import { PokemonCard, Pagination, PageSizer } from '../components'
 
 const PokemonList = () => {
   const [pokemons, setPokemons] = useState([]),
     [loading, setLoading] = useState(false),
-    pageSize = 20,
     [totalCount, setTotalCount] = useState(0),
-    { limit = 20, pageNumber = 1 } = useParams()
+    { pageSize = 20, pageNumber = 1 } = useParams()
 
   useEffect(() => {
     const retrievePokemons = async () => {
-      const response = await getPokeList(limit, limit * (pageNumber - 1)),
+      const response = await getPokeList(pageSize, pageSize * (pageNumber - 1)),
         { data = {} } = response || {},
         { results = [], count = 0 } = data
 
@@ -22,15 +21,19 @@ const PokemonList = () => {
     setLoading(true)
     retrievePokemons()
     setLoading(false)
-  }, [limit, pageNumber])
+  }, [pageSize, pageNumber])
 
   return <section>
-    <h2>Pokemon List</h2>
-    <Pagination
-      totalCount={totalCount}
-      pageSize={pageSize}
-      currentPage={pageNumber}
-    />
+    <header className="header">
+      <div className="navigation">
+        <Pagination
+          totalCount={totalCount}
+          pageSize={pageSize}
+          currentPage={pageNumber}
+        />
+        <PageSizer sizes={[10, 20, 50]} size={pageSize} />
+      </div>
+    </header>
     {
       loading
         ? <div role="progressbar">Loading...</div>
@@ -43,11 +46,15 @@ const PokemonList = () => {
           )}
         </div>
     }
-    <Pagination
-      totalCount={totalCount}
-      pageSize={pageSize}
-      currentPage={pageNumber}
-    />
+    <footer className="footer">
+      <div className="navigation">
+        <Pagination
+          totalCount={totalCount}
+          pageSize={pageSize}
+          currentPage={pageNumber}
+        />
+      </div>
+    </footer>
   </section>
 }
 

@@ -1,11 +1,14 @@
 import React from 'react'
 
 const Abilities = ({ name, abilities }) => <div className="abilities">
-  <h4>Abilities:</h4>
-  <ul className="ability-list">
+  <div className="highlight">Abilities:</div>
+  <ul className="pill-container">
     {
       (abilities || []).map(
-        ({ ability }, index) => <li key={`${name}-${index}`}>
+        ({ ability }, index) => <li
+          key={`${name}-${index}`}
+          className="pill"
+        >
           {ability.name || ''}
         </li>
       )

@@ -13,7 +13,8 @@ jest.mock('react-router-dom', () => ({
 }))
 jest.mock('../../components', () => ({
   ...jest.requireActual('../../components'),
-  Pagination: () => <div>Pagination</div>
+  Pagination: () => <div>Pagination</div>,
+  PageSizer: () => <div>Page Sizer</div>
 }))
 
 describe('PokemonList', () => {

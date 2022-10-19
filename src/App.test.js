@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import App from './App'
 
 it('Displays the welcome message', () => {
-  const welcomeMsg = 'Welcome to pokemon application!'
+  const welcomeMsg = 'Pokemon'
   render(<App />)
   expect(screen.getByText(welcomeMsg)).toBeInTheDocument()
 })

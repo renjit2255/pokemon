@@ -15,27 +15,40 @@ const PokemonDetail = () => {
     goBack = useCallback(() => history.goBack(), [name])
 
   return <article className="pokemon-view">
-    <button className="button go-back" onClick={goBack}>Back</button>
-    {
-      loading
-        ? <div role="progressbar">loading...</div>
-        : <main>
-          <h2>{pokeName}</h2>
-          <div className="pokemon-body">
-            <div className="left-panel">
-              <div className="img">
-                <img src={image} alt={pokeName} loading="lazy"/>
+    <header>
+      <button
+        className="button button-primary go-back"
+        onClick={goBack}
+      >
+      Back
+      </button>
+    </header>
+    <main>
+      {
+        loading
+          ? <div role="progressbar">loading...</div>
+          : <>
+            <h2>{pokeName}</h2>
+            <div className="pokemon-body">
+              <div className="left-panel">
+                <div className="img">
+                  <img src={image} alt={pokeName} loading="lazy"/>
+                </div>
+              </div>
+              <div className="right-panel">
+                <div className="highlight">
+                Weight:<span className="pill">{weight || ''}</span>
+                </div>
+                <div className="highlight">
+                Height:<span className="pill">{height || ''}</span>
+                </div>
+                <Abilities name={data.name} abilities={data.abilities || []}/>
+                <Moves name={data.name} moves={data.moves || []} />
               </div>
             </div>
-            <div className="right-panel">
-              <div>Weight: {weight || ''}</div>
-              <div>Height: {height || ''}</div>
-              <Abilities name={data.name} abilities={data.abilities || []}/>
-              <Moves name={data.name} moves={data.moves || []} />
-            </div>
-          </div>
-        </main>
-    }
+          </>
+      }
+    </main>
   </article>
 }
 

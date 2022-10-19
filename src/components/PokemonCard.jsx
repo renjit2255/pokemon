@@ -21,14 +21,20 @@ const PokemonCard = ({ pokemon = {} }) => {
           <img src={image} alt={data.name} loading="lazy"/>
         </div>
         <div className="text">
-          <h3>
+          <h2>
             {
               data.name
             && <Link to={`/${PAGES.VIEW}/${data.name}`}>{data.name}</Link>
             }
-          </h3>
-          <p>Height: {data.weight}</p>
-          <p>Weight:{data.height}</p>
+          </h2>
+          <p>
+            <span className="highlight">Height:</span>
+            <span className="pill">{data.weight || ''}</span>
+          </p>
+          <p>
+            <span className="highlight">Weight:</span>
+            <span className="pill">{data.height || ''}</span>
+          </p>
           <Abilities name={data.name} abilities={data.abilities || []}/>
         </div>
       </div>

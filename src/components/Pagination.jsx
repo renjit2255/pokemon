@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import usePagination from '../hooks/usePagination'
 import { PAGES } from '../constants'
-import './Pagination.css'
 
 const Pagination = ({
   totalCount,
@@ -13,7 +12,9 @@ const Pagination = ({
       totalCount,
       pageSize
     }),
-    pageNumber = parseInt(currentPage, 10) || 1
+    pageNumber = parseInt(currentPage, 10) || 1,
+    prevPage = pageNumber - 1,
+    nextPage = pageNumber + 1
 
   return (
     <nav role="navigation" aria-label="Pagination navigation">
@@ -24,9 +25,11 @@ const Pagination = ({
         >
           {pageNumber > 1
             ? <Link
-              to={`/${PAGES.LIST}/${pageSize}/${pageNumber - 1}`}
+              to={`/${PAGES.LIST}/${pageSize}/${prevPage}`}
               className="link"
-              aria-label="Goto previous page"
+              aria-label={`Go to page ${prevPage}`}
+              title={`Go to page ${prevPage}`}
+              rel="Previous"
             >
               Previous
             </Link>
@@ -40,7 +43,9 @@ const Pagination = ({
             ? <Link
               to={`/${PAGES.LIST}/${pageSize}/${pageNumber + 1}`}
               className="link"
-              aria-label="Goto next page"
+              rel="next"
+              aria-label={`Go to page ${nextPage}`}
+              title={`Go to page ${nextPage}`}
             >
               Next
             </Link>

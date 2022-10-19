@@ -3,9 +3,9 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import PokemonRoutes from './routes/Routes'
 
 const App = () => <div className="container">
-  <header>
-    <h1>
-      Welcome to pokemon application!
+  <header className="header">
+    <h1 style={{ textAlign: 'center' }}>
+      Pokemon
     </h1>
   </header>
   <main>
